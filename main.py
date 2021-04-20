@@ -1,0 +1,33 @@
+from tkinter import *
+
+window = Tk()
+window.title('Работа с canvas')
+window.minsize(width=500, height=520)
+canvas = Canvas(window, background='white', width=500, height=500)
+
+
+def dras():
+    nwindo = Toplevel()
+    nwindo.title('Рисовка')
+    x1 = Entry(nwindo, width=5)
+    y1 = Entry(nwindo, width=5)
+    x2 = Entry(nwindo, width=5)
+    y2 = Entry(nwindo, width=5)
+    Label(nwindo, text='x1').place(relx=.1.real, rely=0)
+    x1.place(relx=.2, rely=.0)
+    Label(nwindo, text='y1').place(relx=.5.real, rely=.0)
+    y1.place(relx=.6, rely=.0)
+    Label(nwindo, text='x2').place(relx=.1.real, rely=.1)
+    x2.place(relx=.2, rely=.1)
+    Label(nwindo, text='y2').place(relx=.5.real, rely=.1)
+    y2.place(relx=.6, rely=.1)
+    nwindo.minsize(width=200, height=200)
+    Radiobutton(nwindo, text="Круг", value=2, variable=IntVar()).place(relx=.1.real, rely=.3)
+    Radiobutton(nwindo, text="Прямоугольник", value=1, variable=IntVar()).place(relx=.1.real, rely=.4)
+    Button(nwindo, text="Нарисовать", width=20).pack(side="bottom")
+Button(window, text='Добавить фигуру', width=59, command=dras).pack(side="bottom")
+canvas.pack()
+canvas.create_rectangle(0, 0, 50, 50)
+canvas.create_rectangle(50, 0, 100, 50)
+canvas.create_rectangle(100, 0, 150, 50)
+window.mainloop()
